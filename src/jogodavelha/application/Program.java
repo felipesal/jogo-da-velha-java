@@ -1,12 +1,15 @@
 package jogodavelha.application;
 
 import jogodavelha.boardgame.Board;
-import jogodavelha.boardgame.Position;
+import jogodavelha.jdv.JDVMatch;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Board board = new Board(3, 3);
+
+		JDVMatch jdvMatch = new JDVMatch();
+		UI.printBoard(jdvMatch.getPieces());
+		
 	}
 
 }
