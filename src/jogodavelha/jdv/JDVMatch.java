@@ -1,6 +1,8 @@
 package jogodavelha.jdv;
 
 import jogodavelha.boardgame.Board;
+import jogodavelha.jdv.pieces.Bola;
+import jogodavelha.jdv.pieces.Xis;
 
 public class JDVMatch {
 
@@ -8,6 +10,7 @@ public class JDVMatch {
 	
 	public JDVMatch() {
 		board = new Board(3,3);
+		testSetup();
 	}
 	
 	public JDVPiece[][] getPieces(){
@@ -18,5 +21,14 @@ public class JDVMatch {
 			}
 		}
 		return mat;
+	}
+	
+	private void placeNewPiece(char column, int row, JDVPiece piece) {
+		board.placePiece(piece, new JDVPosition(column, row).toPosition());
+	}
+	
+	private void testSetup() {
+		placeNewPiece('a', 2, new Xis(board, Players.XIS));
+		placeNewPiece('b', 3, new Bola(board, Players.BOLA));
 	}
 }
